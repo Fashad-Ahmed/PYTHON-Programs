@@ -11,16 +11,7 @@ for y in range(a):
             list1[z] = asc
 print(list1)
 
-#
-# list=[]
-# x=int(input(": "))
-# for i in range(x):
-#     b=int(input(": "))
-#     list.append(b)
-# for j in range(a):
-#     for k in range(j+1,a):
-#         if list[j]>list[k]:
-#             abc = list[j]
-#             list[j] = list[k]
-#             list[j] = abc
-# print(list)
+
+print("in desceding order")
+
+print(list1[::-1])
