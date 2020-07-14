@@ -32,14 +32,3 @@ for i in range(len(mat)):
 for r in result:
    print(r)
 
-#print(mat)
-#print(mat2)
-#final = []
-# for i in mat:
-#     for j in mat2:
-#for i in range(len(mat)):
-  #  for j in range(len(mat2)):
- #       x = mat[i] + mat[j]
-#        final.append(x)
- #   print(final)
-#print(final)
