@@ -52,17 +52,21 @@ def play_game():
     if winner == "X" or winner == "O":
         print(winner + " won ")
     elif winner == None:
-        print("It's a Tie")
+        print("No one wins")
 
 def handle_turn(player):
     print(player + 's turn')
     position = input("select the position from 1-9: ")
     valid = False
+    count = 0
     while not valid:
         num = ['1','2','3','4','5','6','7','8','9']
         while position not in num:
             print("Invalid Input Please enter a Valid Input")
             position = input("select the position from 1-9: ")
+            count+=count
+            if count == 8:
+                break
         position = int(position) - 1     # for correct positioning of index
 
         if board[position] == '-':
@@ -70,12 +74,15 @@ def handle_turn(player):
         else:
             print("Wrong entry try another checkbox")
 
+
+
     board[position] = player
     display_board()
 
 def check_if_game_over():
     check_if_win()
     check_if_tie()
+    #over()
 
 def check_if_win():
     # set up global variable
@@ -96,8 +103,7 @@ def check_if_win():
         winner = diagonal_winner
     else:
         winner = None
-
-    return
+        return False
 def check_row():
     global game_is_going
     row_1 = board[0] == board[1] == board[2] != "-"
@@ -106,7 +112,6 @@ def check_row():
 
     if row_1 or row_2 or row_3:
         game_is_going = False
-
     if row_1:
         return board[0]
     elif row_2:
@@ -145,20 +150,11 @@ def check_diagonal():
     elif diagonal_2:
         return board[2]
     return
-
 def check_if_tie():
     global game_is_going
-    # if "-" not in game_is_going:
-    #     game_is_going = False
+    if "-" not in board and check_if_win()==False:
+        game_is_going = False
     return
-
-
-
-    # for i in board:
-    #     if i == 'X' or board i == 'O':
-    #         game_is_going = False
-    #
-    # return
 
 def flip_player():
     # need of a global variable
@@ -168,5 +164,6 @@ def flip_player():
     elif current_player == 'O':
         current_player = 'X'
     return
+
 
 play_game()
